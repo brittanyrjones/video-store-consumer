@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {
     BrowserRouter as Router,
     Route,
@@ -11,10 +10,6 @@ import Search from './components/Search'
 import Customers from './components/Customers'
 import Library from './components/Library'
 import VideoStore from './components/VideoStore'
-
-
-
-
 
 class App extends Component {
   render() {

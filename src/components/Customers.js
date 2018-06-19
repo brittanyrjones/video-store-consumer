@@ -4,12 +4,10 @@ import axios from 'axios';
 class Customers extends Component {
   constructor() {
     super();
-
     this.state = {
       customersList: [],
     };
   }
-
 
   componentDidMount = () => {
     axios.get(`http://localhost:3000/customers`)
