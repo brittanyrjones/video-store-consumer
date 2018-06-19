@@ -8,6 +8,12 @@ import {
 
 import './App.css';
 import Search from './components/Search'
+import Customers from './components/Customers'
+import Library from './components/Library'
+import VideoStore from './components/VideoStore'
+
+
+
 
 
 class App extends Component {
@@ -18,24 +24,31 @@ class App extends Component {
     };
 
     return (
-        <Router>
-          <section>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/search">Search</Link></li>
+      <Router>
+      <div>
+      <ul>
+      <li>
+      <Link to="/">Video Store</Link>
+      </li>
+      <li>
+      <Link to="/search">Search</Link>
+      </li>
+      <li>
+      <Link to="/library">Library</Link>
+      </li>
+      <li>
+      <Link to="/customers">Customers</Link>
+      </li>
+      </ul>
+      <hr />
 
-            </ul>
+      <Route exact path="/" component={VideoStore} />
+      <Route path="/search" component={Search} />
 
-            <hr/>
-
-            <Route exact path="/" component={home}/>
-            <Route path="/search" render={()=><Search searchCallback='Submit'/>}/>
-
-
-          </section>
-        </Router>
+      <Route path="/customers" component={Customers} />
+      </div>
+      </Router>
     );
   }
 }
-
 export default App;
