@@ -19,17 +19,12 @@ class Search extends Component {
 
     let updatedInput = {};
     updatedInput[key] = value;
-
-    console.log(this.state);
     this.setState(updatedInput);
   }
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    console.log("form submit");
-
     this.props.searchMovieCallback(this.state);
-    console.log(this.state);
     this.setState({
       query: ''
     });

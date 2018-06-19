@@ -7,8 +7,8 @@ class Movie extends Component {
     index: PropTypes.number,
     title: PropTypes.string.isRequired,
     overview: PropTypes.string,
-    releaseDate: PropTypes.string,
-    image: PropTypes.string,
+    release_date: PropTypes.string,
+    image_url: PropTypes.string,
   }
 
   constructor() {
@@ -23,15 +23,10 @@ class Movie extends Component {
       <div>
         <section className="results">
           <h2>{this.props.title}</h2>
-          <p>{this.props.releaseDate}</p>
+          <p>{this.props.release_date}</p>
           <div className="movie-image">
             <img src={this.props.image} />
           </div>
-
-
-
-
-
         </section>
 
       </div>
