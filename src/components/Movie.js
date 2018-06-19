@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-class Search extends Component {
+class Movie extends Component {
   static propTypes = {
-    searchMovieCallback: PropTypes.func.isRequired
+    searchMovieCallback: PropTypes.func.isRequired,
+    index: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string,
+    releaseDate: PropTypes.string,
+    image: PropTypes.string,
   }
 
   constructor() {
@@ -29,28 +34,29 @@ class Search extends Component {
     console.log("form submit");
 
     this.props.searchMovieCallback(this.state);
-    console.log(this.state);
     this.setState({
       query: ''
     });
   }
 
-  render() {
+  render(){
     return(
       <div>
-      <form onSubmit={this.onFormSubmit} className='movie-search-bar'>
-      <input
-      type="text"
-      name="query"
-      placeholder="Search by Movie Title"
-      onChange={this.onInputChange}
-      value={this.state.query}
-      />
-      <input type="submit"/>
-      </form>
+        <section className="results">
+          <h2>{this.props.title}</h2>
+          <div className="movie-image">
+            <img src={this.props.image} />
+          </div>
+          <p>{this.props.releaseDate}</p>
+          <p>{this.props.overview}</p>
+
+
+
+        </section>
+
       </div>
     );
   }
 }
 
-export default Search;
+export default Movie;

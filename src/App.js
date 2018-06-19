@@ -44,7 +44,7 @@ class App extends Component {
 
       <Route exact path="/" component={VideoStore} />
       <Route path="/search" component={Search} />
-
+      <Route path="/library" component={Library} />
       <Route path="/customers" component={Customers} />
       </div>
       </Router>
