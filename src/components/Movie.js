@@ -11,12 +11,7 @@ class Movie extends Component {
     image_url: PropTypes.string,
   }
 
-  constructor() {
-    super();
-    this.state = {
-      query: ""
-    };
-  }
+
 
   render(){
     return(
