@@ -31,7 +31,7 @@ class Library extends Component {
           overview={movie.overview}
           release_date={movie.release_date}
           inventory={movie.inventory}
-          image={movie.image_url}
+          image_url={movie.image_url}
         />
       );
     });
@@ -45,13 +45,10 @@ class Library extends Component {
     if (this.state.error) {
       errorMessage = <p>{this.state.error}</p>
     }
-
     let message
-
     if (this.state.message) {
       message = <p>{this.state.message}</p>
     }
-
 
     return (
       <section>

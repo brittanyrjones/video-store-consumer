@@ -12,7 +12,6 @@ class Movie extends Component {
   }
 
 
-
   render(){
     return(
       <div>
@@ -20,7 +19,7 @@ class Movie extends Component {
           <h2>{this.props.title}</h2>
           <p>{this.props.release_date}</p>
           <div className="movie-image">
-            <img src={this.props.image} />
+            <img src={this.props.image_url} />
           </div>
         </section>
 
