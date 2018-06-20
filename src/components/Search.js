@@ -1,54 +1,65 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import SearchForm from './SearchForm'
+import Movie from './Movie'
+import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
 
 class Search extends Component {
-  static propTypes = {
-    searchMovieCallback: PropTypes.func.isRequired
-  }
-
   constructor() {
     super();
     this.state = {
-      query: ""
+      results: [],
     };
   }
 
-  onInputChange = (event) => {
-    const key = event.target.name;
-    let value = event.target.value;
+  movieSearch = (title) => {
+    const BASE_URL = 'http://localhost:3000/movies?query='
 
-    let updatedInput = {};
-    updatedInput[key] = value;
+    axios.get(`${BASE_URL}${title}`)
+    .then((response) => {
+        const movieSearchList = response.data.map((result, index) => {
+        return (
+          <Movie
+            title={result.title}
+            overview={result.overview}
+            release_date={result.release_date}
+            image_url={result.image_url}
+            key={index}
+            externalId={result.external_id}
+                      />
+        )
+      })
 
-    console.log(this.state);
-    this.setState(updatedInput);
+      this.setState({
+        results: movieSearchList,
+      });
+    })
+     .catch((error) => {
+       this.setState({ message: error.message });
+    });
+
   }
 
-  onFormSubmit = (event) => {
-    event.preventDefault();
-    console.log("form submit");
-
-    this.props.searchMovieCallback(this.state);
-    console.log(this.state);
-    this.setState({
-      query: ''
-    });
+  showMessage = () => {
+    if (this.state.message) {
+     return (this.state.message)
+   }
   }
 
   render() {
-    return(
-      <div>
-      <form onSubmit={this.onFormSubmit} className='movie-search-bar'>
-      <input
-      type="text"
-      name="query"
-      placeholder="Search by Movie Title"
-      onChange={this.onInputChange}
-      value={this.state.query}
-      />
-      <input type="submit"/>
-      </form>
-      </div>
+
+    return (
+      <section className="movie-search-list">
+        <p>{this.showMessage()}</p>
+        <SearchForm searchCallback={this.movieSearch} />
+        {this.state.results}
+      </section>
     );
   }
 }

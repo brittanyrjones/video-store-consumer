@@ -29,9 +29,9 @@ class Library extends Component {
           key={index}
           title={movie.title}
           overview={movie.overview}
-          release={movie.release_date}
+          release_date={movie.release_date}
           inventory={movie.inventory}
-          image={movie.image}
+          image={movie.image_url}
         />
       );
     });
