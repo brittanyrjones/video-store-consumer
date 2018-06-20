@@ -20,28 +20,36 @@ class App extends Component {
 
     return (
       <Router>
-      <div>
-      <ul>
-      <li>
-      <Link to="/">Video Store</Link>
-      </li>
-      <li>
-      <Link to="/search">Search</Link>
-      </li>
-      <li>
-      <Link to="/library">Library</Link>
-      </li>
-      <li>
-      <Link to="/customers">Customers</Link>
-      </li>
-      </ul>
-      <hr />
-
-      <Route exact path="/" component={VideoStore} />
-      <Route path="/search" component={Search} />
-      <Route path="/library" component={Library} />
-      <Route path="/customers" component={Customers} />
-      </div>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Video Store</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
+            <li>
+              <Link to="/library">Library</Link>
+            </li>
+            <li>
+              <Link to="/customers">Customers</Link>
+            </li>
+              PLACEHOLDER FOR CUSTOMER SPOTLIGHT
+            <li>
+            </li>
+              PLACEHOLDER FOR MOVIE SPOTLIGHT
+            <li>
+            </li>
+              PLACEHOLDER FOR MAKE RENTAL
+            <li>
+            </li>
+          </ul>
+          <hr />
+          <Route exact path="/" component={VideoStore} />
+          <Route path="/search" component={Search} />
+          <Route path="/library" component={Library} />
+          <Route path="/customers" component={Customers} />
+        </div>
       </Router>
     );
   }
