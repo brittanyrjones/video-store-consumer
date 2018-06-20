@@ -10,6 +10,7 @@ import Search from './components/Search'
 import Customers from './components/Customers'
 import Library from './components/Library'
 import SelectedCustomer from './components/SelectedCustomer'
+import SelectedMovie from './components/SelectedMovie'
 
 class App extends Component {
 
@@ -31,7 +32,7 @@ class App extends Component {
               < SelectedCustomer />
             <li>
             </li>
-              PLACEHOLDER FOR MOVIE SPOTLIGHT
+              < SelectedMovie />
             <li>
             </li>
               PLACEHOLDER FOR RENTAL MATCHER
