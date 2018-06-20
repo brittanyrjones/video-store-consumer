@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import CustomerSinglet from './CustomerSinglet';
 
 class Customers extends Component {
   constructor() {
@@ -22,7 +23,15 @@ class Customers extends Component {
   };
 
   renderCustomersList = () => {
-    return this.state.customersList.map((customersInfo) => <li key={customersInfo.id}>{customersInfo.name}</li>);
+    return this.state.customersList.map((customersInfo) =>
+    <li key={customersInfo.id}>
+      <CustomerSinglet
+        ident = {customersInfo.id}
+        name = {customersInfo.name}
+        city = {customersInfo.city}
+        rentals = {customersInfo.rentals}
+      />
+    </li>);
   };
 
   render() {

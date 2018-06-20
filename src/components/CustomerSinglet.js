@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import './CustomerSinglet.css';
 
 class CustomerSinglet extends Component {
@@ -10,19 +9,31 @@ class CustomerSinglet extends Component {
     this.state = {
       custId: props.ident,
       custName: props.name,
-      custRegisteredAt: props.registeredAt,
       custCity: props.city,
       custRentals: props.rentals,
     }
   }
+
+  handleSelect = event => {
+    event.preventDefault();
+    console.log("Selected! Woo!")
+    console.log(this.state.custName)
+    console.log(this.state.custId)
+  }
+
   render() {
+
+    console.log("rendering a customer singlet")
+
     return (
-      <div className="oneCustomer">
+      <div className="customer-singlet">
         <div className="customer-info">
           <h1 className="customer-info_name">{this.state.custName}</h1>
-          <h3 className="customer-info_regdate">Member since: {this.state.custRegisteredAt}</h3>
           <h3 className="customer-info_city">City: {this.state.custCity}</h3>
-          <h4 className="customer-info_rentals">Movies checked out: {this.state.custRentals.length}</h4>
+          <h4 className="customer-info_rentals">Movies checked out: {this.state.custRentals}</h4>
+        </div>
+        <div className="customer-clickable" onClick={this.handleSelect}>
+          Select for Rental
         </div>
       </div>
     )
@@ -30,9 +41,8 @@ class CustomerSinglet extends Component {
 }
 
 CustomerSinglet.propTypes = {
-  ident: PropTypes.number,
-  name: PropTypes.string,
-  registeredAt: PropTypes.string,
+  ident: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
   city: PropTypes.string,
   rentals: PropTypes.number,
 };
