@@ -5,10 +5,9 @@ import './SelectedCustomer.css';
 class SelectedCustomer extends Component {
 
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      customerName: "NONE",
-      customerID: 0
+      customerName: this.props.cmrName
     }
   }
 
@@ -17,7 +16,7 @@ class SelectedCustomer extends Component {
     console.log("rendering the selected-customer lozenge")
 
     return (
-      <div className="selected-customer">
+      <div className="selected-customer-container">
         <div className="upperLabel">
           SELECTED CUSTOMER
         </div>
@@ -30,8 +29,7 @@ class SelectedCustomer extends Component {
 }
 
 SelectedCustomer.propTypes = {
-  customerName: PropTypes.string.isRequired,
-  customerID: PropTypes.number.isRequired,
+  cmrName: PropTypes.string.isRequired,
 };
 
 export default SelectedCustomer;

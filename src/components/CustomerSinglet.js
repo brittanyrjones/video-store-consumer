@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './CustomerSinglet.css';
+import SelectedCustomer from './SelectedCustomer';
 
 class CustomerSinglet extends Component {
 

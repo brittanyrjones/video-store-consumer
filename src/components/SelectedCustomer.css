@@ -1,0 +1,15 @@
+.selected-customer-container {
+    border: 2px double green;
+    border-radius: 12px;
+    max-width: 140px;
+}
+
+.customer-info  {
+  padding: 4px;
+}
+
+.upperLabel  {
+  padding: 4px;
+  border-bottom: 2px;
+  border-bottom-color: green;
+}

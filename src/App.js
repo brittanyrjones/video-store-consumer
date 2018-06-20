@@ -9,22 +9,16 @@ import './App.css';
 import Search from './components/Search'
 import Customers from './components/Customers'
 import Library from './components/Library'
-import VideoStore from './components/VideoStore'
+import SelectedCustomer from './components/SelectedCustomer'
 
 class App extends Component {
-  render() {
 
-    const home = () => {
-      return (<p>Video Store Consumer</p>);
-    };
+  render() {
 
     return (
       <Router>
         <div>
           <ul>
-            <li>
-              <Link to="/">Video Store</Link>
-            </li>
             <li>
               <Link to="/search">Search</Link>
             </li>
@@ -34,18 +28,17 @@ class App extends Component {
             <li>
               <Link to="/customers">Customers</Link>
             </li>
-              PLACEHOLDER FOR CUSTOMER SPOTLIGHT
+              < SelectedCustomer />
             <li>
             </li>
               PLACEHOLDER FOR MOVIE SPOTLIGHT
             <li>
             </li>
-              PLACEHOLDER FOR MAKE RENTAL
+              PLACEHOLDER FOR RENTAL MATCHER
             <li>
             </li>
           </ul>
           <hr />
-          <Route exact path="/" component={VideoStore} />
           <Route path="/search" component={Search} />
           <Route path="/library" component={Library} />
           <Route path="/customers" component={Customers} />

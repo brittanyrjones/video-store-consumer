@@ -138,31 +138,3 @@ You can see what your instructors are looking for [here](./feedback.md)
 
 
 VICTORIA'S CODE PARKING LOT:
-
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-ACTUALLY THIS IS PROBABLY UNNECESSRY, BUT KEEPING (HOARDING) for now
-EVENTUALLY, THIS WILL ALLOW US TO ADD THE CUSTOMER'S RETALS TO THIS COMPONENT.  BUT NOT NOW, BECAUSE IT WILL INVOLVE AN ADDITIONAL API ENDPOINT.
-
-componentDidMount() {
-  axios.get('`http://localhost:3000/customers||||SOMETHING`')
-    .then((response) => {
-      this.setState({ custRentals: response.data });
-    })
-    .catch((error) => {
-      this.setState({ error: error.message });
-    });
-}
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
-
-const cardComponents = cardKeysAttempt.map((card) => {
-  return (
-    <li key = {card.cardId} >
-      <Card
-        cardID = {card.cardId}
-        cardText = {card.cardTxt}
-        cardEmoji = {card.cardEmo}
-      />
-    </li>
-  )
-});
