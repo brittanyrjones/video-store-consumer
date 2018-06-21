@@ -14,16 +14,19 @@ import Customers from './components/Customers'
 import Library from './components/Library'
 import SelectedCustomer from './components/SelectedCustomer'
 import SelectedMovie from './components/SelectedMovie'
+import RentalCreator from './components/RentalCreator'
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      selectedMovie: "DeeeeYeeYeee Fault",
-      selectedCustomer: "Lalalala default",
+      selectedMovie: null,
+      selectedCustomer: null,
     };
     this.customerChosen = this.customerChosen.bind(this)
+    this.movieChosen = this.movieChosen.bind(this)
+    this.clearSpotlight = this.clearSpotlight.bind(this)
   }
 
   customerChosen = (pickedCustomer) => {
@@ -39,6 +42,14 @@ class App extends Component {
     console.log(pickedMovie)
     this.setState({
       selectedMovie: pickedMovie
+    });
+  }
+
+  clearSpotlight = () => {
+    console.log("clearSpotlight is running")
+    this.setState({
+      selectedMovie: null,
+      selectedCustomer: null
     });
   }
 
@@ -76,7 +87,9 @@ class App extends Component {
               />
             </li>
             <li>
-                PLACEHOLDER FOR RENTAL MATCHER
+                < RentalCreator
+                   clearSpotlightCallback = {this.clearSpotlight}
+                />
             </li>
           </ul>
           <hr />

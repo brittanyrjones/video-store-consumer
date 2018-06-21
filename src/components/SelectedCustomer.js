@@ -12,7 +12,7 @@ class SelectedCustomer extends Component {
 
     return (
       <div className="selected-customer-container">
-        <div className="upperLabel">
+        <div className="upper-label">
           SELECTED CUSTOMER
         </div>
         <div className="customer-info">
