@@ -4,12 +4,7 @@ import './SelectedCustomer.css';
 
 class SelectedCustomer extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      customerName: this.props.cmrName
-    }
-  }
+
 
   render() {
 
