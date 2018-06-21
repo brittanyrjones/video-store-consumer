@@ -1,13 +1,28 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PureComponent,
+} from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import CustomerSinglet from './CustomerSinglet';
 
-class Customers extends Component {
-  constructor() {
-    super();
+class Customers extends PureComponent {
+
+  constructor(props) {
+    super(props);
     this.state = {
       customersList: [],
+      selectedCust: null
     };
+  }
+
+  selectedCustCallback = (selectedCustomer) => {
+    this.setState({
+      selectedCust: selectedCustomer
+    });
+    this.props.selldCustToApp(this.state.selectedCust)
+    console.log("Here's what got passed up to Customers through the callback chain:")
+    console.log(this.state.selectedCust)
   }
 
   componentDidMount = () => {
@@ -24,8 +39,9 @@ class Customers extends Component {
 
   renderCustomersList = () => {
     return this.state.customersList.map((customersInfo) =>
-    <li key={customersInfo.id}>
+    <li key={customersInfo.id} >
       <CustomerSinglet
+        selectedCuCallback = {this.selectedCustCallback}
         ident = {customersInfo.id}
         name = {customersInfo.name}
         city = {customersInfo.city}
@@ -46,3 +62,7 @@ class Customers extends Component {
 }
 
 export default Customers;
+
+Customers.propTypes = {
+  selldCustToApp: PropTypes.func.isRequired,
+};

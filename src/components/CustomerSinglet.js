@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PureComponent,
+} from 'react';
 import PropTypes from 'prop-types';
 import './CustomerSinglet.css';
-import SelectedCustomer from './SelectedCustomer';
+
 
 class CustomerSinglet extends Component {
 
@@ -13,6 +16,7 @@ class CustomerSinglet extends Component {
       custCity: props.city,
       custRentals: props.rentals,
     }
+
   }
 
   handleSelect = event => {
@@ -20,6 +24,9 @@ class CustomerSinglet extends Component {
     console.log("Selected! Woo!")
     console.log(this.state.custName)
     console.log(this.state.custId)
+    this.props.selectedCuCallback(this.state)
+    console.log("Here's what Customer Singlet set to its own state:")
+    console.log(this.state)
   }
 
   render() {
@@ -46,6 +53,7 @@ CustomerSinglet.propTypes = {
   name: PropTypes.string.isRequired,
   city: PropTypes.string,
   rentals: PropTypes.number,
+  selectedCuCallback: PropTypes.func.isRequired,
 };
 
 export default CustomerSinglet;

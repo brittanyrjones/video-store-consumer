@@ -9,7 +9,6 @@ import {
   Link
 } from 'react-router-dom'
 
-
 class Search extends Component {
   constructor() {
     super();

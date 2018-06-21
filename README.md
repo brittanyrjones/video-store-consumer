@@ -138,3 +138,58 @@ You can see what your instructors are looking for [here](./feedback.md)
 
 
 VICTORIA'S CODE PARKING LOT:
+
+&&&&&&&&&&&&&&&&&&
+
+NewCardForm.propTypes = {
+  addCardCallback: PropTypes.func.isRequired,
+};
+
+&&&&&&&&&&&&&&&&&&&&&&&&&
+(from Pardee medium article)
+
+class ToDoList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listDataFromChild: null
+        };    
+    },
+    myCallback = (dataFromChild) => {
+        this.setState({ listDataFromChild: dataFromChild });
+    },
+    otherFn = () => {
+        [...within this other function now I still have access to this.state.listDataFromChild...]
+    }
+    render() {
+        return (
+            <div>
+                 <ToDoItem callbackFromParent={this.myCallback}/>
+                 [...now here I can pass this.state.listDataFromChild as a prop to any other child component...]  
+
+            </div>
+        );
+    }
+});
+
+&&&&&&&&&&&&
+
+How to pass props to child elements in router:
+
+(From Tyler McGinnis article)
+
+<Route
+  path='/dashboard'
+  render={(props) => <Dashboard {...props} isAuthed={true} />}
+/>
+
+&&&&& &&&& &&&
+
+Our original:
+
+<Route
+    path="/customers"
+    component={Customers}
+    />
+
+&&&&&&&&&&
