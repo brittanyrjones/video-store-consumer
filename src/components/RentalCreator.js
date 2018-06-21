@@ -15,7 +15,7 @@ class RentalCreator extends Component {
 
   valid_rental = () => {
   return this.props.movie.length > 0 &&
-         this.props.customer.length > 0;
+         this.props.customerName.length > 0;
   }
 
   onSubmitRental = (event) => {
@@ -35,7 +35,7 @@ class RentalCreator extends Component {
   }
 
   postRental = () => {
-    const BASE_URL = 'http://localhost:3000/rental/'
+    const BASE_URL = 'http://localhost:3000/rentals/'
     let titleToRent = this.props.movie
     let customerRenting = this.props.customer
     let requestURL = `${BASE_URL}${titleToRent}/check-out`
@@ -82,7 +82,8 @@ class RentalCreator extends Component {
 }
 
 RentalCreator.propTypes = {
-  customer: PropTypes.string.isRequired,
+  customerName: PropTypes.string.isRequired,
+  customerId: PropTypes.number.isRequired,
   movie: PropTypes.string.isRequired,
   clearSpotlightCallback: PropTypes.func.isRequired
 };
