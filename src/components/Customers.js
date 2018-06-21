@@ -51,9 +51,24 @@ class Customers extends Component {
   };
 
   render() {
+    let errorMessage
+
+    if (this.state.error) {
+      errorMessage = <p>{this.state.error}</p>
+    }
+
+    let message
+
+    if (this.state.message) {
+      message = <p>{this.state.message}</p>
+    }
 
     return (
       <section className="customer-section" onClick={this.handleSingletClick}>
+        <section className="MessageContainer" >
+          {errorMessage}
+          {message}
+        </section>
         <h2>Temporary Troubleshooting Thingee: Selected Customer:  {this.state.selectedCust}</h2>
         <h3>Customers List</h3>
         <ul>{this.renderCustomersList()}</ul>

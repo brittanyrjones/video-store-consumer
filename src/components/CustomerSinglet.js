@@ -20,7 +20,7 @@ class CustomerSinglet extends Component {
 
   handleSelect = event => {
     event.preventDefault();
-    console.log("Selected! Woo!")
+    console.log("Selected a customer! Woo!")
     console.log(this.state.custName)
     console.log(this.state.custId)
     this.props.selectedCuCallback(this.state.custName)

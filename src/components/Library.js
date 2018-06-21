@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Movie from './Movie';
 import axios from 'axios';
 
@@ -7,7 +8,10 @@ class Library extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { movies: [] }
+    this.state = {
+      movies: [],
+      moviePicked: "Legends of De Fault"
+     }
   }
 
   componentDidMount() {
@@ -22,6 +26,15 @@ class Library extends Component {
     });
   }
 
+  selectedMovieCallback = (selectedMovie) => {
+    console.log('The callback to Library is happening')
+    console.log('This is what got passed: ')
+    console.log(selectedMovie)
+    this.setState({
+      moviePicked: selectedMovie })
+    this.props.selldFilmToApp(selectedMovie)
+  }
+
   renderMovieList = () => {
     const componentList = this.state.movies.map((movie,index) => {
       return (
@@ -32,6 +45,7 @@ class Library extends Component {
           release_date={movie.release_date}
           inventory={movie.inventory}
           image={movie.image_url}
+          selectedMvCallback = {this.selectedMovieCallback}
         />
       );
     });
@@ -52,7 +66,6 @@ class Library extends Component {
       message = <p>{this.state.message}</p>
     }
 
-
     return (
       <section>
         {errorMessage}
@@ -63,4 +76,9 @@ class Library extends Component {
   }
 }
 
+
 export default Library;
+
+Library.propTypes = {
+  selldFilmToApp: PropTypes.func.isRequired,
+};

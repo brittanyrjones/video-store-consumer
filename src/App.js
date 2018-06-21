@@ -13,13 +13,14 @@ import Search from './components/Search'
 import Customers from './components/Customers'
 import Library from './components/Library'
 import SelectedCustomer from './components/SelectedCustomer'
+import SelectedMovie from './components/SelectedMovie'
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      selectedMovie: null,
+      selectedMovie: "DeeeeYeeYeee Fault",
       selectedCustomer: "Lalalala default",
     };
     this.customerChosen = this.customerChosen.bind(this)
@@ -30,6 +31,14 @@ class App extends Component {
     console.log(pickedCustomer)
     this.setState({
       selectedCustomer: pickedCustomer
+    });
+  }
+
+  movieChosen = (pickedMovie) => {
+    console.log("Here's what got passed in to the callback function from the app:")
+    console.log(pickedMovie)
+    this.setState({
+      selectedMovie: pickedMovie
     });
   }
 
@@ -57,11 +66,17 @@ class App extends Component {
                 cmrName={this.state.selectedCustomer}
               />
             </li>
-              PLACEHOLDER FOR MOVIE SPOTLIGHT
             <li>
+              <h3> Temporary for Troubleshooting: Selected Movie from app state:  {this.state.selectedMovie}
+              </h3>
             </li>
-              PLACEHOLDER FOR RENTAL MATCHER
             <li>
+              < SelectedMovie
+                mviTitle={this.state.selectedMovie}
+              />
+            </li>
+            <li>
+                PLACEHOLDER FOR RENTAL MATCHER
             </li>
           </ul>
           <hr />
@@ -71,7 +86,12 @@ class App extends Component {
                />
           <Route
               path="/library"
-              component={Library}
+              render={
+                (props) => <Library
+                    {...props}
+                    selldFilmToApp={this.movieChosen}
+                    />
+                  }
               />
           <Route
               path="/customers"
