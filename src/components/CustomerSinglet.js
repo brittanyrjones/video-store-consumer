@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
 import './CustomerSinglet.css';
@@ -16,7 +15,7 @@ class CustomerSinglet extends Component {
       custCity: props.city,
       custRentals: props.rentals,
     }
-
+    this.handleSelect = this.handleSelect.bind(this)
   }
 
   handleSelect = event => {
@@ -24,9 +23,7 @@ class CustomerSinglet extends Component {
     console.log("Selected! Woo!")
     console.log(this.state.custName)
     console.log(this.state.custId)
-    this.props.selectedCuCallback(this.state)
-    console.log("Here's what Customer Singlet set to its own state:")
-    console.log(this.state)
+    this.props.selectedCuCallback(this.state.custName)
   }
 
   render() {

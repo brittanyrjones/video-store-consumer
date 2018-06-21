@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PureComponent,
 } from 'react';
 
 import {
@@ -23,12 +22,15 @@ class App extends Component {
       selectedMovie: null,
       selectedCustomer: "Lalalala default",
     };
+    this.customerChosen = this.customerChosen.bind(this)
   }
 
   customerChosen = (pickedCustomer) => {
     this.setState({
       selectedCust: pickedCustomer
     });
+    console.log("Here's what got passed in to the callback function from the app:")
+    console.log(pickedCustomer)
     console.log("Here's what got to the top, customer-wise:")
     console.log(this.state.selectedCustomer)
   }
@@ -48,10 +50,14 @@ class App extends Component {
             <li>
               <Link to="/customers">Customers</Link>
             </li>
+            <li>
+              <h3> Temporary for Troubleshooting: Selected Customer from app state:  {this.state.selectedCustomer}
+              </h3>
+            </li>
+            <li>
               < SelectedCustomer
                 cmrName={this.state.selectedCustomer}
               />
-            <li>
             </li>
               PLACEHOLDER FOR MOVIE SPOTLIGHT
             <li>

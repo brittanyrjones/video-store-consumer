@@ -1,12 +1,11 @@
 import React, {
   Component,
-  PureComponent,
 } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import CustomerSinglet from './CustomerSinglet';
 
-class Customers extends PureComponent {
+class Customers extends Component {
 
   constructor(props) {
     super(props);
@@ -14,15 +13,15 @@ class Customers extends PureComponent {
       customersList: [],
       selectedCust: null
     };
+    this.selectedCustCallback = this.selectedCustCallback.bind(this)
   }
 
   selectedCustCallback = (selectedCustomer) => {
+    console.log('The callback to Customers is happening')
+    console.log('This is what got passed: ')
+    console.log(selectedCustomer)
     this.setState({
-      selectedCust: selectedCustomer
-    });
-    this.props.selldCustToApp(this.state.selectedCust)
-    console.log("Here's what got passed up to Customers through the callback chain:")
-    console.log(this.state.selectedCust)
+      selectedCust: selectedCustomer })
   }
 
   componentDidMount = () => {
@@ -53,7 +52,8 @@ class Customers extends PureComponent {
   render() {
 
     return (
-      <section className="customer-section">
+      <section className="customer-section" onClick={this.handleSingletClick}>
+        <h2>Temporary Troubleshooting Thingee: Selected Customer:  {this.state.selectedCust}</h2>
         <h3>Customers List</h3>
         <ul>{this.renderCustomersList()}</ul>
       </section>
