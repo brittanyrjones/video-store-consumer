@@ -45,7 +45,7 @@ class Customers extends Component {
         ident = {customersInfo.id}
         name = {customersInfo.name}
         city = {customersInfo.city}
-        rentals = {customersInfo.rentals}
+        rentals = {customersInfo.movies_checked_out_count}
       />
     </li>);
   };
