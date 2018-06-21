@@ -134,3 +134,47 @@ Some of these optional requirements require work in the front-end only, back-end
 
 ## What we're looking for
 You can see what your instructors are looking for [here](./feedback.md)
+
+
+# Victoria's Code Parking Lot:
+
+/rentals/:title/check-out
+
+var sample = "test";    
+var result = `this is just a ${sample}`;
+
+
+
+onFormSubmit = (event) => {
+  event.preventDefault();
+  if (this.valid()) {
+    this.props.addCardCallback(this.state);
+    this.clearForm();
+  }
+}
+
+
+addCard = (card) => {
+    axios.post('https://inspiration-board.herokuapp.com/boards/victoria/cards',
+              card)
+      .then((response) => {
+        this.setState({
+          message: `Successfully Added A Card!`
+        });
+        window.parent.location.reload()
+      })
+      .catch((error) => {
+        console.log(error.message);
+        this.setState({
+          message: error.message,
+        });
+      });
+  }
+
+
+
+  const hasEmoji = this.state.cardEmoji;
+  let displayEmoji;
+  if (hasEmoji) {
+    displayEmoji = emoji.getUnicode(this.props.cardEmoji)
+  } else { displayEmoji = "" }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios'
 
 class Movie extends Component {
 
@@ -21,6 +22,13 @@ class Movie extends Component {
     this.props.selectedMvCallback(this.props.title)
   }
 
+    renderButton = () => {
+    if (this.props.buttonName == "Select Movie for Rental") {
+      return <button onClick={this.selectedMovieCallback} >{this.props.buttonName}</button>
+    } else if (this.props.buttonName == "Add Movie to Rental Library") {
+      return <button onClick={this.addToLibrary} >{this.props.buttonName}</button>
+    }
+  }
 
   render(){
 
@@ -41,6 +49,7 @@ class Movie extends Component {
           </div>
         </section>
       </div>
+
     );
   }
 }

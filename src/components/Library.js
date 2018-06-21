@@ -59,9 +59,7 @@ class Library extends Component {
     if (this.state.error) {
       errorMessage = <p>{this.state.error}</p>
     }
-
     let message
-
     if (this.state.message) {
       message = <p>{this.state.message}</p>
     }
