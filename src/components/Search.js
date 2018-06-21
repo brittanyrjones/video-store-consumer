@@ -11,10 +11,11 @@ import {
 
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       results: [],
+
     };
   }
 
@@ -32,12 +33,18 @@ class Search extends Component {
             image_url={result.image_url}
             key={index}
             externalId={result.external_id}
+            selectMovieCallBack={this.addToLibrary}
+            buttonName="Add Movie to Rental Library"
+
+
                       />
+
         )
       })
 
       this.setState({
         results: movieSearchList,
+        movie: [],
       });
     })
      .catch((error) => {
@@ -51,6 +58,7 @@ class Search extends Component {
      return (this.state.message)
    }
   }
+
 
   render() {
 

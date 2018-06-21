@@ -32,6 +32,7 @@ class Library extends Component {
           release_date={movie.release_date}
           inventory={movie.inventory}
           image_url={movie.image_url}
+          buttonName="Select Movie for Rental"
         />
       );
     });

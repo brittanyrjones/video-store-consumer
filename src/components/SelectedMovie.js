@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './SelectedMovie.css';
-
+import Movie from './Movie'
 
 class SelectedMovie extends Component {
 
