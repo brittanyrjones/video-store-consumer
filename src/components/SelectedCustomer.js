@@ -13,12 +13,7 @@ class SelectedCustomer extends Component {
 
   render() {
 
-    console.log("rendering the selected-customer lozenge")
-    console.log("Hoping this logs something about a customer")
-    console.log("this is what's in the props")
-    console.log(this.props.cmrName)
-    console.log("this is what's in the state")
-    console.log(this.state)
+    console.log("rendering the selected customer lozenge")
 
     return (
       <div className="selected-customer-container">
@@ -26,7 +21,7 @@ class SelectedCustomer extends Component {
           SELECTED CUSTOMER
         </div>
         <div className="customer-info">
-          <h2 className="customer-info_name">{this.state.customerName}</h2>
+          <h2 className="customer-info_name">{this.props.cmrName}</h2>
         </div>
       </div>
     )

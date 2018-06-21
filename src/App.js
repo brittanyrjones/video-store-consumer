@@ -26,13 +26,11 @@ class App extends Component {
   }
 
   customerChosen = (pickedCustomer) => {
-    this.setState({
-      selectedCust: pickedCustomer
-    });
     console.log("Here's what got passed in to the callback function from the app:")
     console.log(pickedCustomer)
-    console.log("Here's what got to the top, customer-wise:")
-    console.log(this.state.selectedCustomer)
+    this.setState({
+      selectedCustomer: pickedCustomer
+    });
   }
 
   render() {

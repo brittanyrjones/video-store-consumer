@@ -22,6 +22,7 @@ class Customers extends Component {
     console.log(selectedCustomer)
     this.setState({
       selectedCust: selectedCustomer })
+    this.props.selldCustToApp(selectedCustomer)
   }
 
   componentDidMount = () => {
