@@ -14,9 +14,11 @@ class RentalCreator extends Component {
   }
 
   valid_rental = () => {
-  return this.props.movie.length > 0 &&
-         this.props.customerName.length > 0;
-  }
+      let validity = ( this.props.movieTitle && this.props.customerName )
+      console.log("valid_rental is running")
+      console.log(validity)
+      return (validity)
+    }
 
   onSubmitRental = (event) => {
     event.preventDefault();
@@ -36,18 +38,21 @@ class RentalCreator extends Component {
 
   postRental = () => {
     const BASE_URL = 'http://localhost:3000/rentals/'
-    let titleToRent = this.props.movie
-    let customerRenting = this.props.customer
+    let titleToRent = this.props.movieTitle
+    let customerRentingName = this.props.customerName
+    let customerRentingParams = { customer_id: this.props.customerID }
     let requestURL = `${BASE_URL}${titleToRent}/check-out`
     console.log("This is the current Request URL:")
     console.log(requestURL)
-    axios.post(requestURL, customerRenting)
+    console.log("Here are the params being sent")
+    console.log(customerRentingParams)
+    axios.post(requestURL, customerRentingParams)
     .then((response) => {
         console.log(response)
         this.setState({
-          message: `${customerRenting} just checked out ${titleToRent}!`
+          message: `${customerRentingName} just checked out ${titleToRent}!`
         })
-        this.clearSpotlightCallback()
+        this.props.clearSpotlightCallback()
       })
     .catch((error) => {
       this.setState({ message: error.message });
@@ -63,18 +68,16 @@ class RentalCreator extends Component {
   render() {
 
     let goodOrBadRental;
-    if (this.state.badRentalAttemt == false) {
-      goodOrBadRental = "okay"
-    } else {goodOrBadRental = "badnews" }
-
+    if (this.state.badRentalAttemt == true) {
+      goodOrBadRental = "badnews"
+    } else {goodOrBadRental = "okay" }
+    let ourClassName = "rental_creator " + {goodOrBadRental}
 
     return (
-      <section className="rental-creator">
-        <section className={goodOrBadRental}>
-          <h3>CLICK HERE TO CREATE A NEW RENTAL</h3>
-          <section className="message-area">
-            {this.state.message}
-          </section>
+      <section className={ourClassName} onClick={this.onSubmitRental}>
+        <h5>CLICK HERE TO CREATE A NEW RENTAL</h5>
+        <section className="message-area">
+          {this.showMessage()}
         </section>
       </section>
     );
@@ -82,9 +85,9 @@ class RentalCreator extends Component {
 }
 
 RentalCreator.propTypes = {
-  customerName: PropTypes.string.isRequired,
-  customerId: PropTypes.number.isRequired,
-  movie: PropTypes.string.isRequired,
+  customerName: PropTypes.string,
+  customerID: PropTypes.number,
+  movieTitle: PropTypes.string,
   clearSpotlightCallback: PropTypes.func.isRequired
 };
 

@@ -22,7 +22,8 @@ class App extends Component {
     super();
     this.state = {
       selectedMovie: null,
-      selectedCustomer: null,
+      selectedCustomerName: null,
+      selectedCustomerId: null,
     };
     this.customerChosen = this.customerChosen.bind(this)
     this.movieChosen = this.movieChosen.bind(this)
@@ -32,8 +33,12 @@ class App extends Component {
   customerChosen = (pickedCustomer) => {
     console.log("Here's what got passed in to the callback function from the app:")
     console.log(pickedCustomer)
+    console.log("broken out by key:")
+    console.log(pickedCustomer.name)
+    console.log(pickedCustomer.id)
     this.setState({
-      selectedCustomer: pickedCustomer
+      selectedCustomerName: pickedCustomer.name,
+      selectedCustomerId: pickedCustomer.id
     });
   }
 
@@ -49,7 +54,8 @@ class App extends Component {
     console.log("clearSpotlight is running")
     this.setState({
       selectedMovie: null,
-      selectedCustomer: null
+      selectedCustomerName: null,
+      selectedCustomerId: null,
     });
   }
 
@@ -69,12 +75,12 @@ class App extends Component {
               <Link to="/customers">Customers</Link>
             </li>
             <li>
-              <h3> Temporary for Troubleshooting: Selected Customer from app state:  {this.state.selectedCustomer}
-              </h3>
-            </li>
-            <li>
+              <h3> Temporary for Troubleshooting: Selected Customer Name from app state:
+               {this.state.selectedCustomerName}</h3>
+
+              <h3> Also for Troubleshooting: Selected Customer ID from app state:  {this.state.selectedCustomerId}</h3>
               < SelectedCustomer
-                cmrName={this.state.selectedCustomer}
+                cmrName={this.state.selectedCustomerName}
               />
             </li>
             <li>
@@ -89,6 +95,9 @@ class App extends Component {
             <li>
                 < RentalCreator
                    clearSpotlightCallback = {this.clearSpotlight}
+                   customerName={this.state.selectedCustomerName}
+                   customerID={this.state.selectedCustomerId}
+                   movieTitle={this.state.selectedMovie}
                 />
             </li>
           </ul>

@@ -11,7 +11,8 @@ class Customers extends Component {
     super(props);
     this.state = {
       customersList: [],
-      selectedCust: null
+      selectedCustName: null,
+      selectedCustId: null,
     };
     this.selectedCustCallback = this.selectedCustCallback.bind(this)
   }
@@ -21,7 +22,8 @@ class Customers extends Component {
     console.log('This is what got passed: ')
     console.log(selectedCustomer)
     this.setState({
-      selectedCust: selectedCustomer })
+      selectedCustName: selectedCustomer.name,
+      selectedCustId: selectedCustomer.id})
     this.props.selldCustToApp(selectedCustomer)
   }
 

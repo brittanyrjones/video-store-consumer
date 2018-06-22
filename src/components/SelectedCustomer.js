@@ -5,7 +5,6 @@ import './SelectedCustomer.css';
 class SelectedCustomer extends Component {
 
 
-
   render() {
 
     console.log("rendering the selected customer lozenge")

@@ -23,7 +23,11 @@ class CustomerSinglet extends Component {
     console.log("Selected a customer! Woo!")
     console.log(this.state.custName)
     console.log(this.state.custId)
-    this.props.selectedCuCallback(this.state.custName)
+    this.props.selectedCuCallback(
+      {
+        name: this.state.custName,
+        id: this.state.custId,
+      })
   }
 
   render() {
