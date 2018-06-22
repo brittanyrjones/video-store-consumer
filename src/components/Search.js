@@ -31,6 +31,8 @@ class Search extends Component {
             image={result.image_url}
             key={index}
             externalId={result.external_id}
+            externalSource={true}
+
                       />
         )
       })

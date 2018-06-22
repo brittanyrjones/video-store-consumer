@@ -45,6 +45,7 @@ class Library extends Component {
           release_date={movie.release_date}
           inventory={movie.inventory}
           image={movie.image_url}
+          librarySource={true}
           selectedMvCallback = {this.selectedMovieCallback}
         />
       );

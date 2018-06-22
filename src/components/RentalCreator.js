@@ -68,10 +68,14 @@ class RentalCreator extends Component {
   render() {
 
     let goodOrBadRental;
+    console.log("This is the class name")
+    console.log(this.goodOrBadRental)
     if (this.state.badRentalAttemt == true) {
       goodOrBadRental = "badnews"
     } else {goodOrBadRental = "okay" }
-    let ourClassName = "rental_creator " + {goodOrBadRental}
+    let ourClassName= `"rental_creator " ${goodOrBadRental}`
+    console.log("This is the class name")
+    console.log(this.goodOrBadRental)
 
     return (
       <section className={ourClassName} onClick={this.onSubmitRental}>
