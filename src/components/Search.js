@@ -28,7 +28,7 @@ class Search extends Component {
             title={result.title}
             overview={result.overview}
             release_date={result.release_date}
-            image_url={result.image_url}
+            image={result.image_url}
             key={index}
             externalId={result.external_id}
                       />
