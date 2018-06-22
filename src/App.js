@@ -75,17 +75,9 @@ class App extends Component {
               <Link to="/customers">Customers</Link>
             </li>
             <li>
-              <h3> Temporary for Troubleshooting: Selected Customer Name from app state:
-               {this.state.selectedCustomerName}</h3>
-
-              <h3> Also for Troubleshooting: Selected Customer ID from app state:  {this.state.selectedCustomerId}</h3>
               < SelectedCustomer
                 cmrName={this.state.selectedCustomerName}
               />
-            </li>
-            <li>
-              <h3> Temporary for Troubleshooting: Selected Movie from app state:  {this.state.selectedMovie}
-              </h3>
             </li>
             <li>
               < SelectedMovie
