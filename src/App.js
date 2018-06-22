@@ -63,36 +63,41 @@ class App extends Component {
 
     return (
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/library">Library</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-            <li>
-              < SelectedCustomer
-                cmrName={this.state.selectedCustomerName}
-              />
-            </li>
-            <li>
-              < SelectedMovie
-                mviTitle={this.state.selectedMovie}
-              />
-            </li>
-            <li>
-                < RentalCreator
-                   clearSpotlightCallback = {this.clearSpotlight}
-                   customerName={this.state.selectedCustomerName}
-                   customerID={this.state.selectedCustomerId}
-                   movieTitle={this.state.selectedMovie}
+        <div className="whole-thing">
+          <span className="top-bit">
+            <h1> A VERY BASIC VIDEO STORE </h1>
+          </span>
+          <section className="navigation-elements">
+            <ul>
+              <li className="nav-link">
+                <Link to="/search">SEARCH</Link>
+              </li>
+              <li className="nav-link">
+                <Link to="/library">LIBRARY</Link>
+              </li >
+              <li className="nav-link">
+                <Link to="/customers">CUSTOMERS</Link>
+              </li>
+              <li>
+                < SelectedCustomer
+                  cmrName={this.state.selectedCustomerName}
                 />
-            </li>
-          </ul>
+              </li>
+              <li>
+                < SelectedMovie
+                  mviTitle={this.state.selectedMovie}
+                />
+              </li>
+              <li>
+                  < RentalCreator
+                     clearSpotlightCallback = {this.clearSpotlight}
+                     customerName={this.state.selectedCustomerName}
+                     customerID={this.state.selectedCustomerId}
+                     movieTitle={this.state.selectedMovie}
+                  />
+              </li>
+            </ul>
+          </section>
           <hr />
           <Route
               path="/search"

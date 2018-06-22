@@ -50,7 +50,8 @@ class RentalCreator extends Component {
     .then((response) => {
         console.log(response)
         this.setState({
-          message: `${customerRentingName} just checked out ${titleToRent}!`
+          message: `${customerRentingName} just checked out ${titleToRent}!`,
+          badRentalAttempt: false
         })
         this.props.clearSpotlightCallback()
       })
@@ -71,8 +72,6 @@ class RentalCreator extends Component {
     if (this.state.badRentalAttempt == true) {
       goodOrBadRental = "badnews"
     } else {goodOrBadRental = "okay" }
-    console.log("This is the goodorbad name")
-    console.log(goodOrBadRental)
 
     let creatorClasses = `${goodOrBadRental} rental_creator`;
 

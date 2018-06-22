@@ -2,6 +2,10 @@
     border: 2px double green;
     border-radius: 12px;
     max-width: 140px;
+    padding: 1.5em;
+    min-height: 100px;
+    max-height: 120px;
+    background-color: #f2d9e6;
 }
 
 .movie-info  {

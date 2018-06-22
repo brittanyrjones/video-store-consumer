@@ -71,7 +71,6 @@ class Customers extends Component {
           {errorMessage}
           {message}
         </section>
-        <h2>Temporary Troubleshooting Thingee: Selected Customer:  {this.state.selectedCust}</h2>
         <h3>Customers List</h3>
         <ul>{this.renderCustomersList()}</ul>
       </section>

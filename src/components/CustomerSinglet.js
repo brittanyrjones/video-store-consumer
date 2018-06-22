@@ -42,7 +42,7 @@ class CustomerSinglet extends Component {
           <h4 className="customer-info_rentals">Movies checked out: {this.state.custRentals}</h4>
         </div>
         <div className="customer-clickable" onClick={this.handleSelect}>
-          Select for Rental
+          Click here to select
         </div>
       </div>
     )
